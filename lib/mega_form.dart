@@ -150,9 +150,9 @@ class MegaFormSettingContainer extends MegaFormField {
                           preferBelow: true,
                           enableTapToDismiss: true,
                           exitDuration: null,
-                          showDuration: Duration(days: 1),
+                          showDuration: const Duration(days: 1),
                           triggerMode: TooltipTriggerMode.tap,
-                          child: Icon(Icons.help),
+                          child: const Icon(Icons.help),
                         )
                       else
                         const SizedBox.shrink(),
