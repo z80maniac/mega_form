@@ -380,7 +380,7 @@ class MegaFormFieldStringListChip extends MegaFormField {
   final String? help;
   final bool isEnabled;
   final List<String> initialValue;
-  final List<FormBuilderChipOption> options;
+  final List<String> options;
   final Color? backgroundColor;
   final Color? selectedColor;
   final Widget Function(String fieldName)? afterLabelBuilder;
@@ -400,7 +400,7 @@ class MegaFormFieldStringListChip extends MegaFormField {
         selectedColor: selectedColor,
         spacing: Pad.pad,
         showCheckmark: false,
-        options: options,
+        options: options.map((opt) => FormBuilderChipOption(value: opt)).toList(),
       ),
     );
   }
