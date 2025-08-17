@@ -17,7 +17,7 @@ dependencies:
   pad5:
     git:
       url: https://github.com/z80maniac/pad5.git
-      ref: 1a4fd401ba790abf842692ee67e8aec9cae9c301
+      ref: 33f4004b677409f56a77415ce55d14a4157c28e0
 
 dev_dependencies:
   flutter_lints: ^6.0.0
