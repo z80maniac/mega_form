@@ -362,7 +362,17 @@ class MegaFormFieldDropdown<T> extends MegaFormField {
   }
 }
 
-class MegaFormFieldStringListChip extends MegaFormField {
+class MegaFormFieldStringListChipOption<T> {
+  const MegaFormFieldStringListChipOption({
+    required this.value,
+    required this.text,
+  });
+
+  final T value;
+  final String text;
+}
+
+class MegaFormFieldStringListChip<T> extends MegaFormField {
   const MegaFormFieldStringListChip({
     required this.name,
     required this.label,
@@ -380,7 +390,7 @@ class MegaFormFieldStringListChip extends MegaFormField {
   final String? help;
   final bool isEnabled;
   final List<String> initialValue;
-  final List<String> options;
+  final List<MegaFormFieldStringListChipOption<T>> options;
   final Color? backgroundColor;
   final Color? selectedColor;
   final Widget Function(String fieldName)? afterLabelBuilder;
@@ -400,8 +410,15 @@ class MegaFormFieldStringListChip extends MegaFormField {
         selectedColor: selectedColor,
         spacing: Pad.pad,
         showCheckmark: false,
-        options: options.map((opt) => FormBuilderChipOption(value: opt)).toList(),
+        options: options.map((opt) => FormBuilderChipOption(value: opt.value, child: Text(opt.text))).toList(),
       ),
     );
+  }
+
+  static List<MegaFormFieldStringListChipOption> optionsFromStrings(List<String> items) {
+    return items.map((item) => MegaFormFieldStringListChipOption(
+      value: item,
+      text: item,
+    )).toList();
   }
 }
